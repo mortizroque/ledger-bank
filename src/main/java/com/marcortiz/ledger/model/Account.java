@@ -1,12 +1,18 @@
 package com.marcortiz.ledger.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "accounts")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Account {
 
     @Id
