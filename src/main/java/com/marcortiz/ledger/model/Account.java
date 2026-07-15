@@ -1,6 +1,5 @@
 package com.marcortiz.ledger.model;
 
-import com.marcortiz.ledger.util.Status;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -14,18 +13,18 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column (nullable = false, unique = true, length = 40)
-    private String account_number;
+    private String accountNumber;
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
 
-    @Column (nullable = false)
+    @Column (nullable = false, precision = 19, scale = 2)
     private BigDecimal balance;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Status state;
+    private AccountStatus state;
 
     @Column (nullable = false, length = 15)
     private LocalDateTime createdAt;
